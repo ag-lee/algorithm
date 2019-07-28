@@ -1,0 +1,20 @@
+# 최대 변을 저장하는 배열
+sides = [-1, 1, 1]
+
+
+def solution(N):
+    find_longest_side(N)
+    # 긴 변 : n + n-1, 짧은 변 : n
+    # 둘레 = 2 * (n + n - 1) + 2n = 4 * n + 2 * (n-1)
+    return 4 * sides[N] + 2 * sides[N-1]
+
+
+# 배열 값들을 재귀적으로 구해준다.
+def find_longest_side(n):
+    # 배열에 이미 값이 존재하면 그 값을 반환한다.
+    if len(sides) <= n or sides[n] == 0:
+        # n 값은 n-1, n-2의 합이다.
+        # 이전 값들이 배열에 존재하지 않을 수도 있으므로 재귀적으로 두 값을 더해 반환한다.
+        sides.insert(n, find_longest_side(n - 1) + find_longest_side(n - 2))
+
+    return sides[n]
