@@ -47,7 +47,7 @@ best_score = 0
 def calculate_score(word):
     score = 0
     for c in word:
-        if c in scores and c in letters:
+        if c in letters:
             score += scores[c]
         else:
             return -1
@@ -64,7 +64,7 @@ for w in word:
         best_score = score
         best_word = w
         best_char = new
-    elif score == best_score and new == best_char:
+    elif new == best_char:
         best_word = w if len(w) < len(best_word) else best_word
 
 
