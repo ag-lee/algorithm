@@ -3,3 +3,6 @@
 
 # python env
 venv/
+
+# coding test solutions
+coding_tests/
